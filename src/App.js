@@ -4,7 +4,7 @@ import "./App.css";
 const dictionary = [
   { word: "React", meaning: "A JavaScript library for building user interfaces." },
   { word: "Component", meaning: "A reusable building block in React." },
-  { word: "State", meaning: "An object that stores data for a component." },
+  { word: "State", meaning: "An object that stores data for a component." }
 ];
 
 function App() {
@@ -25,17 +25,27 @@ function App() {
 
   return (
     <div className="container">
-      <h1>XDictionary</h1>
+      <h1>Dictionary App</h1>
+      
+
+      {/* Search Input */}
       <input
         type="text"
         placeholder="Search a word"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        data-cy="search-input"
       />
-      <button onClick={handleSearch}>Search</button>
+
+
+      <button onClick={handleSearch} data-cy="search-button">
+        Search
+      </button>
+
+      <h3>Definition:</h3>
       {definition && (
-        <div className="result">
-          <h3>Definition:</h3>
+        <div className="result" data-cy="definition">
+          
           <p>{definition}</p>
         </div>
       )}
